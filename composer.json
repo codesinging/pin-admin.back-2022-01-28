@@ -21,5 +21,15 @@
         "psr-4": {
             "CodeSinging\\PinAdmin\\Tests\\": "tests"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CodeSinging\\PinAdmin\\PinAdminServiceProvider"
+            ],
+            "aliases": {
+                "Admin": "CodeSinging\\PinAdmin\\Admin"
+            }
+        }
     }
 }
