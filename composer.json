@@ -1,6 +1,6 @@
 {
     "name": "codesinging/pin-admin",
-    "description": "A Laravel package to build administrative applications",
+    "description": "A Laravel package to rapidly build administrative applications",
     "license": "MIT",
     "authors": [
         {
@@ -9,7 +9,8 @@
         }
     ],
     "require": {
-        "php": ">7.1"
+        "php": "^7.4|^8.0",
+        "laravel/framework": "^8.80"
     },
     "autoload": {
         "psr-4": {
