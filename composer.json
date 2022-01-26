@@ -31,5 +31,8 @@
                 "Admin": "CodeSinging\\PinAdmin\\Admin"
             }
         }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.24"
     }
 }
