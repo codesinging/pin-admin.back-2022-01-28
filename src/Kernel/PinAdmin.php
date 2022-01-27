@@ -72,6 +72,7 @@ class PinAdmin
 
     /**
      * 返回 PinAdmin 版本
+     *
      * @return string
      */
     public function version(): string
@@ -81,6 +82,7 @@ class PinAdmin
 
     /**
      * 返回 PinAdmin 品牌名
+     *
      * @return string
      */
     public function brand(): string
@@ -90,6 +92,7 @@ class PinAdmin
 
     /**
      * 返回 PinAdmin 的品牌 slogan
+     *
      * @return string
      */
     public function slogan(): string
@@ -190,13 +193,14 @@ class PinAdmin
      *
      * @param string $name
      *
-     * @return Application
+     * @return PinAdmin
      * @throws Exception
      */
-    public function boot(string $name): Application
+    public function boot(string $name): PinAdmin
     {
         $this->load($name);
-        return $this->application = $this->application($name);
+        $this->application = $this->application($name);
+        return $this;
     }
 
     /**
