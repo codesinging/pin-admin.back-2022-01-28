@@ -10,6 +10,8 @@ use CodeSinging\PinAdmin\Console\Commands\AdminCommand;
 use CodeSinging\PinAdmin\Console\Commands\ApplicationsCommand;
 use CodeSinging\PinAdmin\Console\Commands\CreateCommand;
 use CodeSinging\PinAdmin\Console\Commands\ListCommand;
+use CodeSinging\PinAdmin\Middleware\Auth;
+use CodeSinging\PinAdmin\Middleware\Guest;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -33,14 +35,19 @@ class PinAdminServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected array $middlewares = [];
+    protected array $middlewares = [
+        'admin.guest' => Guest::class,
+        'admin.auth' => Auth::class,
+    ];
 
     /**
      * 应用中间件组
      *
      * @var array
      */
-    protected array $middlewareGroups = [];
+    protected array $middlewareGroups = [
+        'admin' => [],
+    ];
 
     /**
      * 注册服务
