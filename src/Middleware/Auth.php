@@ -29,6 +29,6 @@ class Auth extends Authenticate
             throw new Exception('Not authenticated.');
         }
 
-        return Admin::link('auth/login');
+        return Admin::link('auth');
     }
 }

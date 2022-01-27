@@ -11,7 +11,7 @@ Route::middleware(['web', 'admin.guest:__DUMMY_NAME__'])
     ->prefix('__DUMMY_PREFIX__')
     ->group(function () {
 
-        Route::get('/auth/login', [__DUMMY_NAMESPACE__\Controllers\AuthController::class, 'index']);
+        Route::get('/auth', [__DUMMY_NAMESPACE__\Controllers\AuthController::class, 'index']);
 
     });
 
