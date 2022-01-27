@@ -6,6 +6,7 @@
 
 namespace CodeSinging\PinAdmin\Kernel;
 
+use CodeSinging\PinAdmin\Console\Commands\ListCommand;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -17,7 +18,9 @@ class PinAdminServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected array $commands = [];
+    protected array $commands = [
+        ListCommand::class,
+    ];
 
     /**
      * 应用中间件

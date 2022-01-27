@@ -28,10 +28,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "CodeSinging\\PinAdmin\\PinAdminServiceProvider"
+                "CodeSinging\\PinAdmin\\Kernel\\PinAdminServiceProvider"
             ],
             "aliases": {
-                "Admin": "CodeSinging\\PinAdmin\\Admin"
+                "Admin": "CodeSinging\\PinAdmin\\Kernel\\Admin"
             }
         }
     },
