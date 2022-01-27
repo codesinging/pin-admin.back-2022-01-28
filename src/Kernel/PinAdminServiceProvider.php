@@ -68,12 +68,12 @@ class PinAdminServiceProvider extends ServiceProvider
             $this->registerMigrations();
         }
 
-        if (!$this->app->configurationIsCached()){
+        if (!$this->app->configurationIsCached()) {
             $this->mergeConfig();
             $this->configureAuth();
         }
 
-        if (!$this->app->routesAreCached()){
+        if (!$this->app->routesAreCached()) {
             $this->loadRoutes();
         }
 
@@ -140,7 +140,9 @@ class PinAdminServiceProvider extends ServiceProvider
      */
     protected function registerPublishes()
     {
-
+        $this->publishes([
+            Admin::packagePath('config/admin.php') => base_path('config/admin.php')
+        ], Admin::label('config', '-'));
     }
 
     /**
@@ -170,7 +172,7 @@ class PinAdminServiceProvider extends ServiceProvider
      */
     protected function mergeConfig()
     {
-        if (file_exists($file = Admin::packagePath('config/admin.php'))){
+        if (file_exists($file = Admin::packagePath('config/admin.php'))) {
             $this->mergeConfigFrom($file, Admin::label());
         }
     }
