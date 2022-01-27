@@ -8,6 +8,8 @@ namespace CodeSinging\PinAdmin\Console;
 
 class Command extends \Illuminate\Console\Command
 {
+    use FileHelpers;
+
     /**
      * 输出一行标题信息
      *
