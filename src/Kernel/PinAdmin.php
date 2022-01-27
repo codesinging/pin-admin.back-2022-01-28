@@ -196,9 +196,9 @@ class PinAdmin
      * @return PinAdmin
      * @throws Exception
      */
-    public function boot(string $name): PinAdmin
+    public function boot(string $name, array $options = []): PinAdmin
     {
-        $this->load($name);
+        $this->load($name, $options);
         $this->application = $this->application($name);
         return $this;
     }
@@ -208,10 +208,10 @@ class PinAdmin
      *
      * @throws Exception
      */
-    protected function load(string $name)
+    protected function load(string $name, array $options = [])
     {
         if (empty($this->applications[$name])) {
-            $this->applications[$name] = new Application($name);
+            $this->applications[$name] = new Application($name, $options);
         }
     }
 
@@ -238,7 +238,7 @@ class PinAdmin
         $indexes = $this->indexes();
         foreach ($indexes as $name => $options) {
             if ($options['status']) {
-                $this->load($name);
+                $this->load($name, $options);
             }
         }
     }

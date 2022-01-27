@@ -6,6 +6,7 @@
 
 namespace Tests\Kernel;
 
+use CodeSinging\PinAdmin\Exceptions\Exception;
 use CodeSinging\PinAdmin\Kernel\Application;
 use Tests\TestCase;
 
@@ -42,15 +43,23 @@ class ApplicationTest extends TestCase
         self::assertEquals('App\\PinAdmin\\Admin\\Controllers\\IndexController.php', (new Application('admin'))->getNamespace('Controllers', 'IndexController.php'));
     }
 
+    /**
+     * @throws Exception
+     */
     public function testRoutePrefix()
     {
         self::assertEquals('admin', (new Application('admin'))->routePrefix());
+        self::assertEquals('admin123', (new Application('admin', ['prefix' => 'admin123']))->routePrefix());
     }
 
+    /**
+     * @throws Exception
+     */
     public function testLink()
     {
         self::assertEquals('/admin', (new Application('admin'))->link());
         self::assertEquals('/admin/home', (new Application('admin'))->link('home'));
         self::assertEquals('/admin/home?id=1', (new Application('admin'))->link('home', ['id' => 1]));
+        self::assertEquals('/admin123', (new Application('admin', ['prefix' => 'admin123']))->link());
     }
 }

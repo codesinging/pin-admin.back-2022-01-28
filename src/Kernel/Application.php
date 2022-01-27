@@ -37,17 +37,25 @@ class Application
     protected string $direction;
 
     /**
+     * 应用启动参数
+     *
+     * @var array
+     */
+    protected array $options = [];
+
+    /**
      * @param string $name
+     * @param array $options
      *
      * @throws Exception
      */
-    public function __construct(string $name)
+    public function __construct(string $name, array $options = [])
     {
-        if (!$this->verifyName($name)){
+        if (!$this->verifyName($name)) {
             throw new Exception(sprintf('应用名称 [%s] 非法', $name));
         }
 
-        $this->init($name);
+        $this->init($name, $options);
     }
 
     /**
@@ -66,12 +74,14 @@ class Application
      * 初始化应用
      *
      * @param string $name
+     * @param array $options
      *
      * @return void
      */
-    protected function init(string $name)
+    protected function init(string $name, array $options = [])
     {
         $this->name = $name;
+        $this->options = $options;
         $this->direction = self::BASE_DIRECTORY . DIRECTORY_SEPARATOR . Str::studly($name);
     }
 
@@ -129,7 +139,7 @@ class Application
      */
     public function routePrefix(): string
     {
-        return $this->name;
+        return $this->options['prefix'] ?? $this->name;
     }
 
     /**
