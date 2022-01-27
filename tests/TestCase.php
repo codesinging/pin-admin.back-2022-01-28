@@ -4,9 +4,9 @@
  * Github: https://github.com/codesinging
  */
 
-namespace CodeSinging\PinAdmin\Tests;
+namespace Tests;
 
-use CodeSinging\PinAdmin\PinAdminServiceProvider;
+use CodeSinging\PinAdmin\Kernel\PinAdminServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {

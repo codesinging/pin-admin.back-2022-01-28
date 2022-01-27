@@ -15,11 +15,14 @@
     "autoload": {
         "psr-4": {
             "CodeSinging\\PinAdmin\\": "src"
-        }
+        },
+        "files": [
+            "src/Support/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
-            "CodeSinging\\PinAdmin\\Tests\\": "tests"
+            "Tests\\": "tests"
         }
     },
     "extra": {
