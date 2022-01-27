@@ -8,6 +8,7 @@ namespace CodeSinging\PinAdmin\Kernel;
 
 use CodeSinging\PinAdmin\Console\Commands\AdminCommand;
 use CodeSinging\PinAdmin\Console\Commands\ApplicationsCommand;
+use CodeSinging\PinAdmin\Console\Commands\CreateCommand;
 use CodeSinging\PinAdmin\Console\Commands\ListCommand;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
@@ -23,6 +24,7 @@ class PinAdminServiceProvider extends ServiceProvider
     protected array $commands = [
         AdminCommand::class,
         ApplicationsCommand::class,
+        CreateCommand::class,
         ListCommand::class,
     ];
 
